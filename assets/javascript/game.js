@@ -13,19 +13,19 @@
     }
 
     function updateWins(){
-        document.querySelector('#wins').innerHTML = "Wins: " + wins;
+        document.getElementById('wins').innerHTML = "Wins: " + wins;
     }
 
     function updateLosses(){
-        document.querySelector('#losses').innerHTML = "losses: " + losses;
+        document.getElementById('losses').innerHTML = "losses: " + losses;
     }
 
     function updateGuesses(){
-        document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
-        document.querySelector('#attemptedGuesses').innerHTML = "Your Guesses so far: " + attemptedGuesses;
+        document.getElementById('guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
+        document.getElementById('attemptedGuesses').innerHTML = "Your Guesses so far: " + attemptedGuesses;
     }
 
-    generateCorrectAnswer();
+    var correctAnswer = generateCorrectAnswer();
     updateWins();
     updateLosses();
     updateGuesses();
@@ -37,9 +37,22 @@
         if (guess === correctAnswer){
             wins++;
             updateWins();
+            guessesLeft = 9;
+            attemptedGuesses = [];
+            updateGuesses();
+        }
+
+        else if(guessesLeft === 1){
+            losses++;
+            updateLosses();
+            guessesLeft = 9;
+            attemptedGuesses = [];
+            updateGuesses();
         }
 
         else{
-            
+            guessesLeft--;
+            attemptedGuesses.push(guess);
+            updateGuesses();
         }
     }
