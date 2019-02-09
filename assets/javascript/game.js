@@ -26,6 +26,7 @@
     }
 
     var correctAnswer = generateCorrectAnswer();
+    console.log(correctAnswer);
     updateWins();
     updateLosses();
     updateGuesses();
@@ -40,6 +41,8 @@
             guessesLeft = 9;
             attemptedGuesses = [];
             updateGuesses();
+            correctAnswer = generateCorrectAnswer();
+            console.log(correctAnswer);
         }
 
         else if(guessesLeft === 1){
@@ -48,6 +51,8 @@
             guessesLeft = 9;
             attemptedGuesses = [];
             updateGuesses();
+            correctAnswer = generateCorrectAnswer();
+            console.log(correctAnswer);
         }
 
         else{
